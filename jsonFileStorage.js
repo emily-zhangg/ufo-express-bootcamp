@@ -102,7 +102,7 @@ export function add(filename, key, input, callback) {
     if (!(key in jsonContentObj)) {
       console.error('Key does not exist');
       // Call callback with relevant error message to let client handle
-      callback('Key does not exist');
+      console.log('Key does not exist');
       return;
     }
 
