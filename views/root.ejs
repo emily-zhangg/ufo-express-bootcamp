@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="/root.css" />
+    <title>Main Page</title>
+  </head>
+  <body>
+    <%- include('../partials/nav')%>
+    <div class="container">
+      <h1>Sighting List</h1>
+      <div class="row heading">
+        <span class="col-3">Date</span>
+        <span class="col-3">Shape</span>
+        <span class="col-3">City</span>
+      </div>
+      <%sightings.sightings.forEach((element)=>{%>
+      <div class="row">
+        <span class="col-3"><%=element.date_time%></span>
+        <span class="col-3"><%=element.shape%></span>
+        <span class="col-3"><%=element.city%></span>
+        <input class="col-2" type="button" value="Delete" />
+      </div>
+      <%})%>
+    </div>
+  </body>
+</html>

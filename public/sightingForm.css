@@ -1,0 +1,21 @@
+body {
+  background-color: salmon;
+}
+.container {
+  width: 70%;
+  margin: auto;
+  background-color: rgb(160, 243, 202);
+  margin-top: 30vh;
+  padding: 10px;
+}
+nav {
+  background-color: gray;
+  width: 100vw;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  color: white;
+}
+.col-2 {
+  color: white;
+}

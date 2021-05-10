@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="/sightingForm.css" />
+    <title>Sightings Form</title>
+  </head>
+  <body>
+    <%- include('../partials/nav')%>
+    <div class="container">
+      <form action="/sightingForm" method="POST">
+        <div class = 'row'>
+          <div class ='col-4'><label for="text">Description</label></div>
+          <div class ='col-6'>
+        <input type="text" name="description" />
+        </div>
+      </div>
+      <div class = 'row'><div class ='col-4'><label for="date_time">Date and Time</label></div><div class ='col-6'>
+        <input type="text" name="date_time" />
+        </div></div><div class = 'row'><div class ='col-4'><label for="city">City</label></div><div class ='col-6'>
+        <input type="text" name="city" />
+        </div></div><div class = 'row'><div class ='col-4'><label for="state">State</label></div><div class ='col-6'>
+        <input type="text" name="state" />
+        </div></div><div class = 'row'><div class ='col-4'><label for="shape">Shape</label></div><div class ='col-6'>
+        <input type="text" name="shape" />
+        </div></div><div class = 'row'><div class ='col-4'><label for="duration">Duration</label></div><div class ='col-6'>
+        <input type="text" name="duration" />
+        </div></div><div class = 'row'><div class ='col-4'><label for="summary">Summary</label></div><div class ='col-6'>
+        <input type="text" name="summary" />
+        <input type="submit" value="Submit Sighting" />
+      </form>
+    </div>
+  </body>
+</html>

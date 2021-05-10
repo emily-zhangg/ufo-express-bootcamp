@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="/sightings.css" />
+    <title>Sighting</title>
+  </head>
+  <body>
+    <%- include('../partials/nav')%>
+    <h1>Sighting</h1>
+    <div class="container">
+      <div class="row">
+        <p class="col-3">Description</p>
+        <p class="col-6"><%=sightings.text%></p>
+      </div>
+      <div class="row">
+        <p class="col-3">Date and Time</p>
+        <p class="col-6"><%=sightings.date_time%></p>
+      </div>
+      <div class="row">
+        <p class="col-3">City</p>
+        <p class="col-6"><%=sightings.city%></p>
+      </div>
+      <div class="row">
+        <p class="col-3">State</p>
+        <p class="col-6"><%=sightings.state%></p>
+      </div>
+      <div class="row">
+        <p class="col-3">Shape</p>
+        <p class="col-6"><%=sightings.shape%></p>
+      </div>
+      <div class="row">
+        <p class="col-3">Duration</p>
+        <p class="col-6"><%=sightings.duration%></p>
+      </div>
+      <div class="row">
+        <p class="col-3">Summary</p>
+        <p class="col-6"><%=sightings.summary%></p>
+      </div>
+    </div>
+  </body>
+</html>

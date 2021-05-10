@@ -1,0 +1,26 @@
+body {
+  background-color: rgb(218, 168, 168);
+}
+.container {
+  width: 70%;
+  margin: auto;
+  background-color: rgb(113, 140, 221);
+}
+span {
+  width: 100%;
+}
+h1 {
+  text-align: center;
+  margin-top: 30vh;
+}
+nav {
+  background-color: gray;
+  width: 100vw;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  color: white;
+}
+.col-2 {
+  color: white;
+}
