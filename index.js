@@ -1,8 +1,9 @@
 import express from 'express';
-import { add } from './jsonFileStorage.js';
-import { read } from '../../week4/day5/noodles-express-bootcamp/jsonFileStorage.js';
+import { add,read, write } from './jsonFileStorage.js';
+import methodOverride from 'method-override';
 
 const app = express();
+app.use(methodOverride('_method'))
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
@@ -54,6 +55,29 @@ app.get('/shape', (req, res) => {
     res.render('shapes', data);
   });
 });
+app.get('/sighting/:index/edit',(req,res)=>{
+  read('data.json',(err,content)=>{
+    const data = {index:req.params.index,data:content.sightings[req.params.index]}
+    res.render('sightingsEditForm',data)
+  })
+})
+app.put('/sighting/:index/edit',(req,res)=>{
+  read('data.json',(err,content)=>{
+    content.sightings[req.params.index]=req.body;
+    console.log(req.body)
+    write('data.json',content,(err,content)=>{
+    })
+    res.render('notif',{message:'You have successfully edited the UFO entry'})
+  })
 
+})
+app.delete('/:index',(req,res)=>{
+  read('data.json',(err,content)=>{
+    content.sightings.splice(Number(req.params.index),1)
+    write('data.json',content,(err,content)=>{
+    })
+    res.render('notif',{message:'You have successfully deleted the UFO entry'})
+  })
+})
 app.listen(3004);
 console.log('https://localhost:3004');

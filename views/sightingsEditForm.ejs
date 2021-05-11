@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="/sightingsEditForm.css" />
+    <title>Sightings Form</title>
+  </head>
+  <body>
+    <%- include('../partials/nav')%>
+    <div class="container">
+      <form action="/sighting/<%=index%>/edit?_method=PUT" method="POST">
+        <div class="row">
+          <label class="col-4">Description</label>
+          <input
+            class="col-5"
+            type="text"
+            name="description"
+            value="<%=data.text%>"
+          />
+        </div>
+        <div class="row">
+          <label class="col-4">Date and Time</label>
+          <input
+            class="col-5"
+            type="text"
+            name="date_time"
+            value="<%=data.date_time%>"
+          />
+        </div>
+        <div class="row">
+          <label class="col-4">City</label>
+          <input class="col-5" type="text" name="city" value="<%=data.city%>" />
+        </div>
+        <div class="row">
+          <label class="col-4">State</label>
+          <input
+            class="col-5"
+            type="text"
+            name="state"
+            value="<%=data.state%>"
+          />
+        </div>
+        <div class="row">
+          <label class="col-4">Shape</label>
+          <input
+            class="col-5"
+            type="text"
+            name="shape"
+            value="<%=data.shape%>"
+          />
+        </div>
+        <div class="row">
+          <label class="col-4">Duration</label>
+          <input
+            class="col-5"
+            type="text"
+            name="duration"
+            value="<%=data.duration%>"
+          />
+        </div>
+        <div class="row">
+          <label class="col-4">Summary</label>
+          <input
+            class="col-5"
+            type="text"
+            name="summary"
+            value="<%=data.summary%>"
+          />
+        </div>
+        <div class="row">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
