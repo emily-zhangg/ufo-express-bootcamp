@@ -1,8 +1,7 @@
-import express, { response } from "express";
+import express from "express";
 import methodOverride from "method-override";
 import cookieParser from "cookie-parser";
 import { add, read, write } from "./jsonFileStorage.js";
-import e from "express";
 
 const app = express();
 app.use(cookieParser());
