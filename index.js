@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
         favcontent.push(content.sightings[Number(x)]);
       });
     }
-    const data = { sightings: content, favourite: favcontent };
+    const data = { sightings: content.sightings, favourite: favcontent };
     res.render("root", data);
   });
 });
@@ -116,6 +116,41 @@ app.post("/fav", (req, res) => {
   res.cookie("favIndex", favArr);
   console.log(favArr);
   res.redirect("/");
+});
+app.post("/filter", (req, res) => {
+  const createdDates = [];
+  read("data.json", (err, content) => {
+    let favcontent = [];
+    if (req.cookies.favIndex) {
+      req.cookies.favIndex.forEach((x) => {
+        favcontent.push(content.sightings[Number(x)]);
+      });
+    }
+    const order = req.query.order;
+    const sortedContent = content.sightings.sort((a, b) => {
+      let date1;
+      let date2;
+      if (order === "asc") {
+        date1 = new Date(b.dateCreated);
+        date2 = new Date(a.dateCreated);
+      } else {
+        date2 = new Date(b.dateCreated);
+        date1 = new Date(a.dateCreated);
+      }
+      if (date2 > date1) {
+        return 1;
+      }
+      if (date2 < date1) {
+        return -1;
+      }
+      if ((date2 = date1)) {
+        return 0;
+      }
+      console.log(new Date(b.dateCreated) - new Date(a.dateCreated));
+    });
+    const data = { sightings: sortedContent, favourite: favcontent };
+    res.render("root", data);
+  });
 });
 app.listen(3004);
 console.log("https://localhost:3004");
